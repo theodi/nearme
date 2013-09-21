@@ -1,0 +1,28 @@
+<h1>Step 2: Specify columns</h1>
+
+<p class="lead">Please select what type of data each column represents. If a column is irrelevant, just leave it blank.</p>
+
+<%= form_for @dataset, :role => 'form'  do %>
+
+<p>When you're finished, just click <%= submit_tag "Submit", :class=> "btn btn-primary" %></p>
+
+  <table class="table table-bordered">
+    <tr>
+      <% @data.first.count.times do |n| %>
+        <th>
+          <div class="form-group">
+            <%= select_tag "cols[#{n}]", options_for_select(["Name", "Address1", "Address2", "Address3", "Address4", "Latitude", "Longitude", "Latitude, Longitude", "Longitude, Latitude", "Easting", "Northing", "Easting, Northing", "Northing, Easting"]), :class => "form-control", :prompt => "Please select" %>
+          </div>
+        </th>
+      <% end %>
+    </tr>
+  <% @data.each do |row| %>
+    <tr>
+      <% row.each do |col| %>
+        <td><%= col %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </table>
+
+<% end %>

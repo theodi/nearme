@@ -1,0 +1,16 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Your MP</h3>
+  </div>
+  <div class="panel-body">
+    <div class="media">
+      <div class="pull-left">
+        <%= image_tag postcode.constituency[:mp][:photo], :class => "media-object" %>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><%= postcode.constituency[:mp][:name] %></h4>
+        <p><%= postcode.constituency[:mp][:party] %></p>
+      </div>
+    </div>
+  </div>
+</div>

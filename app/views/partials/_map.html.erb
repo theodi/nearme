@@ -1,0 +1,18 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Map</h3>
+  </div>
+  <div class="panel-body">
+    <%= map(
+            :center => {
+              :latlng => [postcode.lat_lng[:lat], postcode.lat_lng[:lng]],
+              :zoom => 18
+            }, 
+            :markers => [
+              {
+                :latlng => [postcode.lat_lng[:lat], postcode.lat_lng[:lng]],
+              }
+            ],
+          ) %>
+  </div>
+</div>

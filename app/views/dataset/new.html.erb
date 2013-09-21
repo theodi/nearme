@@ -1,0 +1,28 @@
+<h1>Add a dataset</h1>
+
+<%= form_for :dataset, url: dataset_index_path, :role => 'form'  do %>
+  
+  <div class="form-group">
+    <%= label_tag :url %>
+    <%= text_field_tag :url, nil, :class => "form-control" %>
+    <p class="help-block">Enter the URL of the dataset here (CSV format is only supported currently)</p>
+    <label>
+      <%= check_box_tag :headers %> First row contains headers
+    </label>
+  </div>
+  
+  <div class="form-group">
+    <%= label_tag :type %>
+    <%= text_field_tag :type, nil, :class => "form-control" %>
+    <p class="help-block">What is shown in the dataset? (For example, parks, leisure centres etc)</p>
+  </div>
+  
+  <div class="form-group">
+    <%= label_tag :council %>
+    <%= select_tag :council, options_from_collection_for_select(Council.all.order_by(:name.asc), "snac", "name"), :class => "form-control", :prompt => "Please select" %>
+    <p class="help-block">What council area does this dataset cover?</p>
+  </div>
+  
+  <%= submit_tag "Go!", :class=> "btn btn-primary" %>
+  
+<% end %>

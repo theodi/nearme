@@ -1,0 +1,16 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Your councillors</h3>
+  </div>
+  <div class="panel-body">
+  <% if postcode.councillors.length == 0 %>
+    <p>Sorry, your councillors are not listed on Openly Local. Why not try the <%= link_to "council's website", postcode.council.url %>?</p>
+  <% else %>
+  <ul>
+    <% postcode.councillors.each do |c| %>
+      <li><%= c[:name] %></li>
+    <% end %>
+  </ul>
+  <% end %>
+  </div>
+</div>

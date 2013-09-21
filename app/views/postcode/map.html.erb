@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Map</h3>
+  </div>
+  <div class="panel-body">
+    <%= map(
+            :center => {
+              :latlng => [51.52238797921441, -0.08366235665359283],
+              :zoom => 18
+            }, 
+            :markers => [
+              {
+                :latlng => [51.52238797921441, -0.08366235665359283],
+              }
+            ],
+          ) %>
+  </div>
+</div>

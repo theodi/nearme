@@ -1,0 +1,10 @@
+<h1>Enter your postcode</h1>
+
+<%= form_tag postcode_index_path, :role => 'form', :class => "form-inline" do %>
+  <div class="form-group">
+    <%= label_tag :postcode, nil, :class => 'sr-only' %>
+    <%= text_field_tag :postcode, nil, :class => "form-control", :placeholder => "Enter your postcode" %>
+  </div>
+  <%= submit_tag "Go!", :class=> "btn btn-primary" %>
+  
+<% end %>

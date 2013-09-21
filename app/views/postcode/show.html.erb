@@ -1,0 +1,31 @@
+<h1>Information about <%= @postcode.norm %></h1>
+
+<div class="row">
+
+  <div class="col-md-8">
+    
+    <div class="panel panel-primary">
+      <div class="panel-body">
+      <% if @postcode.county.nil? %>
+        <p>Your local council is <%= link_to @postcode.council.name, @postcode.council.url %></p>
+      <% else %>
+        <p>Your district council is <%= link_to @postcode.council.name, @postcode.council.url %> and your county council is <%= link_to @postcode.county.name, @postcode.county.url %></p>  
+      <% end %>
+      </div>
+    </div>
+
+    <%= render :partial => 'partials/councillors', :locals => { :postcode => @postcode } %>
+
+    <%= render :partial => 'partials/mp', :locals => { :postcode => @postcode } %>
+  
+  </div>
+
+  <div class="col-md-4">
+    <%= render :partial => 'partials/map', :locals => { :postcode => @postcode } %>
+  </div>
+
+</div>
+
+<% @postcode.datasets.each do |title, results| %>
+  <%= render :partial => 'partials/dataset', :locals => { :title => title, :results => results } %>
+<% end %>
